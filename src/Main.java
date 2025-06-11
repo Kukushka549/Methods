@@ -6,29 +6,31 @@ public class Main {
 
         System.out.println("Task 1");
         int year = 2024;
-        task1(year);
+        foundLeapYear(year);
 
         System.out.println("Task 2");
         int clientOS = 1;
         int clientDeviceYear = 2014;
-        task2(clientOS, clientDeviceYear);
+        determineVerOS(clientOS, clientDeviceYear);
 
         System.out.println("Task 3");
         int deliveryDistance = 95;
-        task3(deliveryDistance);
+        foundDeliveryDays(deliveryDistance);
 
     }
 
-    public static void task1(int year) {
+    public static void foundLeapYear(int year) {
 
             if (year < 1584) {
                     System.out.println("В то время високосный год ещё не придумали.");
                 }else if ((year %4 == 0 && year %100 !=0)||year %400 == 0){
                     System.out.println(year + " - високосный год");
-                }else System.out.println(year + " - невисокосный год");
-        }
+                }else {
+                System.out.println(year + " - невисокосный год");
+            }
+    }
 
-    public static void task2(int clientOS, int clientDeviceYear) {
+    public static void determineVerOS(int clientOS, int clientDeviceYear) {
 
         if (clientOS != 0 && clientOS != 1) {
             throw new RuntimeException("Неизвестная ОС");
@@ -36,14 +38,14 @@ public class Main {
             System.out.println("Установите облегчённую версию приложения для iOS по ссылке");
         }else if (clientOS == 1 && clientDeviceYear < 2015) {
             System.out.println("Установите облегчённую версию приложения для Android по ссылке");
-        } else if (clientOS == 0) {
+        }else if (clientOS == 0) {
             System.out.println("Установите версию приложения для iOS по ссылке");
-        } else if (clientOS == 1) {
+        }else if (clientOS == 1) {
             System.out.println("Установите версию приложения для Android по ссылке");
         }
     }
 
-    public static void task3(int deliveryDistance) {
+    public static void foundDeliveryDays(int deliveryDistance) {
 
         int deliveryDays = 1;
 
@@ -53,6 +55,8 @@ public class Main {
             System.out.println("Потребуется дней: " + (deliveryDays + 1));
         }else if (deliveryDistance > 60 && deliveryDistance <= 100) {
             System.out.println("Потребуется дней: " + (deliveryDays + 2));
-        }else {System.out.println("Вне зоны доставки.");}
+        }else {
+            System.out.println("Вне зоны доставки.");
+        }
     }
 }
